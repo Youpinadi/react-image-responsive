@@ -1,0 +1,31 @@
+{
+  "name": "react-image-responsive",
+  "version": "1.0.0",
+  "description": "An image that is responsive to its width on the screen (can be also a background image)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel index.js > dist/index.js",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Youpinadi/react-image-responsive"
+  },
+  "keywords": [
+    "react-component",
+    "image",
+    "responsive"
+  ],
+  "author": "Nadir Kadem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youpinadi/react-image-responsive/issues"
+  },
+  "homepage": "https://github.com/Youpinadi/react-image-responsive",
+  "dependencies": {
+    "is-client": "0.0.2",
+    "is-retina": "^1.0.3",
+    "lodash.debounce": "^3.1.1",
+    "object-assign": "^4.0.1"
+  }
+}
