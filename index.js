@@ -36,6 +36,8 @@ var _isClient = require('is-client');
 
 var _isClient2 = _interopRequireDefault(_isClient);
 
+require('babel/polyfill');
+
 var Source = (function (_Component) {
   _inherits(Source, _Component);
 
@@ -173,7 +175,7 @@ var ImageResponsive = (function (_Component2) {
   }, {
     key: 'isSource',
     value: function isSource(item) {
-      return item.type.displayName && item.type.displayName === 'Source';
+      return item.type && item.type.displayName && item.type.displayName === 'Source';
     }
   }, {
     key: 'notSource',

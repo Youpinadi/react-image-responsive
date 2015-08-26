@@ -3,6 +3,7 @@ import debounce from 'lodash.debounce'
 import objectAssign from 'object-assign'
 import isRetina from 'is-retina'
 import isClient from 'is-client'
+require('babel/polyfill')
 
 export class Source extends Component {
   static displayName = 'Source'
@@ -72,7 +73,7 @@ export default class ImageResponsive extends Component {
     return resultSource ? resultSource.props.src : this.props.src
   }
   isSource(item) {
-    return item.type.displayName && item.type.displayName === 'Source'
+    return item.type && item.type.displayName && item.type.displayName === 'Source'
   }
   notSource(item) {
     return !this.isSource(item)
