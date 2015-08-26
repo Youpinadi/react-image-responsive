@@ -5,6 +5,7 @@ import isRetina from 'is-retina'
 import isClient from 'is-client'
 
 export class Source extends Component {
+  static displayName = 'Source'
   render() {
     return null
   }
@@ -60,18 +61,18 @@ export default class ImageResponsive extends Component {
     }
   }
   pickOptimalSource(width, props) {
-    let sources = props.children.filter(this.isSource).sort((a,b) => a.props.maxWidth > b.props.maxWidth)
-    let source
-    for (source of sources) {
+    let sources = props.children.filter(this.isSource).sort((a, b) => a.props.maxWidth > b.props.maxWidth)
+    let resultSource
+    for (let source of sources) {
       let maxWidth = this.isRetina ? source.props.maxWidth / 2 : source.props.maxWidth
       if (width < maxWidth) {
-        return source.props.src
+        resultSource = source
       }
     }
-    return source.props.src
+    return resultSource ? resultSource.props.src : this.props.src
   }
   isSource(item) {
-    return item.type && item.type.name === 'Source'
+    return item.type.displayName && item.type.displayName === 'Source'
   }
   notSource(item) {
     return !this.isSource(item)

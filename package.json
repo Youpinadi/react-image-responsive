@@ -8,7 +8,7 @@
     "url": "https://github.com/Youpinadi/react-image-responsive"
   },
   "scripts": {
-    "build": "babel src/index.js > index.js",
+    "build": "babel --stage 0 src/index.js > index.js",
     "prepublish": "npm run build"
   },
   "keywords": [
