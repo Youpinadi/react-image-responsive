@@ -12,7 +12,7 @@ React.render(
     </ImageResponsive>
     <br/>
     <br/>
-    <ImageResponsive type="background-image" src="http://placehold.it/50x50" width="50%" height="200px" transition={false}>
+    <ImageResponsive type="background-image" src="http://placehold.it/50x50" width="50%" height="200px" style={{transition: 'background-image .2s ease'}}>
         <Source src="http://placehold.it/300x300"  maxWidth={300}/>
         <Source src="http://placehold.it/500x300"  maxWidth={500}/>
         <Source src="http://placehold.it/800x300"  maxWidth={800}/>
