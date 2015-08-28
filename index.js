@@ -153,6 +153,7 @@ var ImageResponsive = (function (_Component2) {
           var maxWidth = this.isRetina ? source.props.maxWidth / 2 : source.props.maxWidth;
           if (width < maxWidth) {
             resultSource = source;
+            break;
           }
         }
       } catch (err) {

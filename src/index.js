@@ -68,6 +68,7 @@ export default class ImageResponsive extends Component {
       let maxWidth = this.isRetina ? source.props.maxWidth / 2 : source.props.maxWidth
       if (width < maxWidth) {
         resultSource = source
+        break
       }
     }
     return resultSource ? resultSource.props.src : this.props.src
