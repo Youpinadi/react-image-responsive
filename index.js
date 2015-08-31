@@ -36,7 +36,9 @@ var _isClient = require('is-client');
 
 var _isClient2 = _interopRequireDefault(_isClient);
 
-require('babel/polyfill');
+if (!global._babelPolyfill) {
+  require('babel/polyfill');
+}
 
 var Source = (function (_Component) {
   _inherits(Source, _Component);
