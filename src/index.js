@@ -3,6 +3,7 @@ import debounce from 'lodash.debounce'
 import objectAssign from 'object-assign'
 import isRetina from 'is-retina'
 import isClient from 'is-client'
+import R from 'ramda'
 
 if (!global._babelPolyfill) {
   require('babel/polyfill')
@@ -65,16 +66,12 @@ export default class ImageResponsive extends Component {
     }
   }
   pickOptimalSource(width, props) {
-    let sources = props.children.filter(this.isSource).sort((a, b) => a.props.maxWidth > b.props.maxWidth)
-    let resultSource
-    for (let source of sources) {
-      let maxWidth = this.isRetina ? source.props.maxWidth / 2 : source.props.maxWidth
-      if (width < maxWidth) {
-        resultSource = source
-        break
-      }
-    }
-    return resultSource ? resultSource.props.src : this.props.src
+    let data = props.children.filter(this.isSource)
+
+    let bestBiggerSource = R.head(R.sort((a, b) => a.props.maxWidth > b.props.maxWidth)(R.filter((a) => a.props.maxWidth >= width)(data)))
+    let bestSmallerSource = R.head(R.sort((a, b) => a.props.maxWidth < b.props.maxWidth)(R.filter((a) => a.props.maxWidth <= width)(data)))
+
+    return R.or(bestBiggerSource, bestSmallerSource).props.src
   }
   isSource(item) {
     return item.type && item.type.displayName && item.type.displayName === 'Source'

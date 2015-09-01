@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/Youpinadi/react-image-responsive",
   "dependencies": {
+    "babel": "^5.8.21",
     "is-client": "0.0.2",
     "is-retina": "^1.0.3",
     "lodash.debounce": "^3.1.1",
     "object-assign": "^4.0.1",
-    "babel": "^5.8.21"
+    "ramda": "^0.17.1"
   },
   "devDependencies": {
     "babel-jest": "^5.2.0",
