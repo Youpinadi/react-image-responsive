@@ -36,6 +36,10 @@ var _isClient = require('is-client');
 
 var _isClient2 = _interopRequireDefault(_isClient);
 
+var _ramda = require('ramda');
+
+var _ramda2 = _interopRequireDefault(_ramda);
+
 if (!global._babelPolyfill) {
   require('babel/polyfill');
 }
@@ -140,40 +144,20 @@ var ImageResponsive = (function (_Component2) {
   }, {
     key: 'pickOptimalSource',
     value: function pickOptimalSource(width, props) {
-      var sources = props.children.filter(this.isSource).sort(function (a, b) {
+      var data = props.children.filter(this.isSource);
+
+      var bestBiggerSource = _ramda2['default'].head(_ramda2['default'].sort(function (a, b) {
         return a.props.maxWidth > b.props.maxWidth;
-      });
-      var resultSource = undefined;
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+      })(_ramda2['default'].filter(function (a) {
+        return a.props.maxWidth >= width;
+      })(data)));
+      var bestSmallerSource = _ramda2['default'].head(_ramda2['default'].sort(function (a, b) {
+        return a.props.maxWidth < b.props.maxWidth;
+      })(_ramda2['default'].filter(function (a) {
+        return a.props.maxWidth <= width;
+      })(data)));
 
-      try {
-        for (var _iterator = sources[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var source = _step.value;
-
-          var maxWidth = this.isRetina ? source.props.maxWidth / 2 : source.props.maxWidth;
-          if (width < maxWidth) {
-            resultSource = source;
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator['return']) {
-            _iterator['return']();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      return resultSource ? resultSource.props.src : this.props.src;
+      return _ramda2['default'].or(bestBiggerSource, bestSmallerSource).props.src;
     }
   }, {
     key: 'isSource',
