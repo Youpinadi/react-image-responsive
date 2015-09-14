@@ -23,6 +23,7 @@ export default class ImageResponsive extends Component {
     transition: PropTypes.bool.isRequired,
   }
   static defaultProps = {
+    src: '',
     style: {},
     type: 'image',
     transition: true
@@ -41,6 +42,9 @@ export default class ImageResponsive extends Component {
   }
   handleResize() {
     this.setState({'src': this.pickOptimalSource(React.findDOMNode(this.refs.element).offsetWidth, this.props)})
+  }
+  componentWillMount() {
+    this.setState({src: this.props.src})
   }
   componentDidMount() {
     if (isClient) {

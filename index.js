@@ -83,6 +83,7 @@ var ImageResponsive = (function (_Component2) {
   }, {
     key: 'defaultProps',
     value: {
+      src: '',
       style: {},
       type: 'image',
       transition: true
@@ -109,6 +110,11 @@ var ImageResponsive = (function (_Component2) {
     key: 'handleResize',
     value: function handleResize() {
       this.setState({ 'src': this.pickOptimalSource(_react2['default'].findDOMNode(this.refs.element).offsetWidth, this.props) });
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState({ src: this.props.src });
     }
   }, {
     key: 'componentDidMount',
