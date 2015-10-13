@@ -4,6 +4,3 @@ before_script:
 run test:
   script:
     - npm test
-  tags:
-    - node0.12
-
