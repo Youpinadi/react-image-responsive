@@ -33,7 +33,8 @@
   },
   "devDependencies": {
     "babel-jest": "^5.2.0",
-    "jest-cli": "^0.4.0"
+    "jest-cli": "^0.5.10",
+    "react": "^0.13.3"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
