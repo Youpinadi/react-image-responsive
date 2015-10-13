@@ -1,0 +1,6 @@
+before_script:
+  - npm install
+
+run test:
+  script:
+    - npm test
