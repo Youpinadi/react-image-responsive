@@ -95,7 +95,9 @@ export default class ImageResponsive extends Component {
     }
     else if (this.props.type === 'background-image') {
         style.backgroundSize = '100% 100%'
-        style.backgroundImage = `url('${this.state.src}')`
+        if (this.state.src) {
+            style.backgroundImage = `url('${this.state.src}')`
+        }
         if (this.props.width) {
           style.width = this.props.width
         }

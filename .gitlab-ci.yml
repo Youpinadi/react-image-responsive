@@ -1,0 +1,9 @@
+before_script:
+  - npm install
+
+run test:
+  script:
+    - npm test
+  tags:
+    - node0.12
+
