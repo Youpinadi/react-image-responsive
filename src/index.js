@@ -75,7 +75,12 @@ export default class ImageResponsive extends Component {
     let bestBiggerSource = R.head(R.sort((a, b) => a.props.maxWidth > b.props.maxWidth)(R.filter((a) => a.props.maxWidth >= width)(data)))
     let bestSmallerSource = R.head(R.sort((a, b) => a.props.maxWidth < b.props.maxWidth)(R.filter((a) => a.props.maxWidth <= width)(data)))
 
-    return R.or(bestBiggerSource, bestSmallerSource).props.src
+    let source = R.or(bestBiggerSource, bestSmallerSource)
+    if (source) {
+        return source.props.src
+    }
+
+    return this.props.src
   }
   isSource(item) {
     return item.type && item.type.displayName && item.type.displayName === 'Source'
