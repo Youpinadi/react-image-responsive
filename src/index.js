@@ -66,7 +66,7 @@ export default class ImageResponsive extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.src && nextProps.src !== this.props.src) {
-        this.setState({'src': this.pickOptimalSource(React.findDOMNode(this.refs.element).offsetWidth, nextProps)})
+        this.setState({'src': this.pickOptimalSource(React.findDOMNode(this.refs.element).offsetWidth, nextProps)}, this.handleResize)
     }
   }
   pickOptimalSource(width, props) {
