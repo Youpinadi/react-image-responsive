@@ -37,6 +37,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94,7 +98,7 @@ var ImageResponsive = function (_Component2) {
   _createClass(ImageResponsive, [{
     key: 'handleResize',
     value: function handleResize() {
-      this.setState({ 'src': this.pickOptimalSource(_react2.default.findDOMNode(this.refs.element).offsetWidth, this.props) });
+      this.setState({ 'src': this.pickOptimalSource(_reactDom2.default.findDOMNode(this.refs.element).offsetWidth, this.props) });
     }
   }, {
     key: 'componentWillMount',
@@ -108,7 +112,7 @@ var ImageResponsive = function (_Component2) {
         this.handleResize();
         window.addEventListener('resize', this.handleResizeDebounced);
         if (this.props.type === 'image' && this.props.transition) {
-          _react2.default.findDOMNode(this.refs.element).addEventListener('load', this.onLoad.bind(this));
+          _reactDom2.default.findDOMNode(this.refs.element).addEventListener('load', this.onLoad.bind(this));
         }
       }
     }
@@ -129,7 +133,7 @@ var ImageResponsive = function (_Component2) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (this.props.src && nextProps.src !== this.props.src) {
-        this.setState({ 'src': this.pickOptimalSource(_react2.default.findDOMNode(this.refs.element).offsetWidth, nextProps) }, this.handleResize);
+        this.setState({ 'src': this.pickOptimalSource(_reactDom2.default.findDOMNode(this.refs.element).offsetWidth, nextProps) }, this.handleResize);
       }
     }
   }, {
