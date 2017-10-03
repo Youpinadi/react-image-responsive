@@ -217,3 +217,4 @@ ImageResponsive.defaultProps = {
   transition: true
 };
 exports.default = ImageResponsive;
+
