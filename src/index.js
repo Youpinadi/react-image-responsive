@@ -1,9 +1,10 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import debounce from 'lodash.debounce'
 import objectAssign from 'object-assign'
 import isRetina from 'is-retina'
 import isClient from 'is-client'
 import R from 'ramda'
+import PropTypes from 'prop-types'
 
 if (!global._babelPolyfill) {
   require('babel/polyfill')
