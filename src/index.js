@@ -1,9 +1,11 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import debounce from 'lodash.debounce'
 import objectAssign from 'object-assign'
 import isRetina from 'is-retina'
 import isClient from 'is-client'
 import R from 'ramda'
+import PropTypes from 'prop-types'
+import ReactDOM from 'react-dom'
 
 if (!global._babelPolyfill) {
   require('babel/polyfill')
@@ -41,7 +43,7 @@ export default class ImageResponsive extends Component {
     this.handleResizeDebounced = debounce(this.handleResize, 300).bind(this)
   }
   handleResize() {
-    this.setState({'src': this.pickOptimalSource(React.findDOMNode(this.refs.element).offsetWidth, this.props)})
+    this.setState({'src': this.pickOptimalSource(ReactDOM.findDOMNode(this.refs.element).offsetWidth, this.props)})
   }
   componentWillMount() {
     this.setState({src: this.props.src})
@@ -51,7 +53,7 @@ export default class ImageResponsive extends Component {
       this.handleResize()
       window.addEventListener('resize', this.handleResizeDebounced)
       if (this.props.type === 'image' && this.props.transition) {
-        React.findDOMNode(this.refs.element).addEventListener('load', ::this.onLoad)
+        ReactDOM.findDOMNode(this.refs.element).addEventListener('load', ::this.onLoad)
       }
     }
   }
@@ -66,7 +68,7 @@ export default class ImageResponsive extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.src && nextProps.src !== this.props.src) {
-        this.setState({'src': this.pickOptimalSource(React.findDOMNode(this.refs.element).offsetWidth, nextProps)}, this.handleResize)
+        this.setState({'src': this.pickOptimalSource(ReactDOM.findDOMNode(this.refs.element).offsetWidth, nextProps)}, this.handleResize)
     }
   }
   pickOptimalSource(width, props) {

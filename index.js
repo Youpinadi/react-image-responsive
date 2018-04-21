@@ -1,28 +1,21 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Source = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashDebounce = require('lodash.debounce');
+var _lodash = require('lodash.debounce');
 
-var _lodashDebounce2 = _interopRequireDefault(_lodashDebounce);
+var _lodash2 = _interopRequireDefault(_lodash);
 
 var _objectAssign = require('object-assign');
 
@@ -40,17 +33,33 @@ var _ramda = require('ramda');
 
 var _ramda2 = _interopRequireDefault(_ramda);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 if (!global._babelPolyfill) {
   require('babel/polyfill');
 }
 
-var Source = (function (_Component) {
+var Source = exports.Source = function (_Component) {
   _inherits(Source, _Component);
 
   function Source() {
     _classCallCheck(this, Source);
 
-    _get(Object.getPrototypeOf(Source.prototype), 'constructor', this).apply(this, arguments);
+    return _possibleConstructorReturn(this, (Source.__proto__ || Object.getPrototypeOf(Source)).apply(this, arguments));
   }
 
   _createClass(Source, [{
@@ -58,58 +67,38 @@ var Source = (function (_Component) {
     value: function render() {
       return null;
     }
-  }], [{
-    key: 'displayName',
-    value: 'Source',
-    enumerable: true
   }]);
 
   return Source;
-})(_react.Component);
+}(_react.Component);
 
-exports.Source = Source;
+Source.displayName = 'Source';
 
-var ImageResponsive = (function (_Component2) {
+var ImageResponsive = function (_Component2) {
   _inherits(ImageResponsive, _Component2);
-
-  _createClass(ImageResponsive, null, [{
-    key: 'propTypes',
-    value: {
-      src: _react.PropTypes.string.isRequired,
-      type: _react.PropTypes.string.isRequired,
-      transition: _react.PropTypes.bool.isRequired
-    },
-    enumerable: true
-  }, {
-    key: 'defaultProps',
-    value: {
-      src: '',
-      style: {},
-      type: 'image',
-      transition: true
-    },
-    enumerable: true
-  }]);
 
   function ImageResponsive() {
     _classCallCheck(this, ImageResponsive);
 
-    _get(Object.getPrototypeOf(ImageResponsive.prototype), 'constructor', this).call(this);
-    this.state = {
+    var _this2 = _possibleConstructorReturn(this, (ImageResponsive.__proto__ || Object.getPrototypeOf(ImageResponsive)).call(this));
+
+    _this2.state = {
       width: false,
       loaded: true,
       src: false
     };
-    this.src = null;
-    this.isClient = (0, _isClient2['default'])();
-    this.isRetina = _isClient2['default'] && (0, _isRetina2['default'])();
-    this.handleResizeDebounced = (0, _lodashDebounce2['default'])(this.handleResize, 300).bind(this);
+
+    _this2.src = null;
+    _this2.isClient = (0, _isClient2.default)();
+    _this2.isRetina = _isClient2.default && (0, _isRetina2.default)();
+    _this2.handleResizeDebounced = (0, _lodash2.default)(_this2.handleResize, 300).bind(_this2);
+    return _this2;
   }
 
   _createClass(ImageResponsive, [{
     key: 'handleResize',
     value: function handleResize() {
-      this.setState({ 'src': this.pickOptimalSource(_react2['default'].findDOMNode(this.refs.element).offsetWidth, this.props) });
+      this.setState({ 'src': this.pickOptimalSource(_reactDom2.default.findDOMNode(this.refs.element).offsetWidth, this.props) });
     }
   }, {
     key: 'componentWillMount',
@@ -119,11 +108,11 @@ var ImageResponsive = (function (_Component2) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (_isClient2['default']) {
+      if (_isClient2.default) {
         this.handleResize();
         window.addEventListener('resize', this.handleResizeDebounced);
         if (this.props.type === 'image' && this.props.transition) {
-          _react2['default'].findDOMNode(this.refs.element).addEventListener('load', this.onLoad.bind(this));
+          _reactDom2.default.findDOMNode(this.refs.element).addEventListener('load', this.onLoad.bind(this));
         }
       }
     }
@@ -136,7 +125,7 @@ var ImageResponsive = (function (_Component2) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.setState({ loaded: false });
-      if (_isClient2['default']) {
+      if (_isClient2.default) {
         window.removeEventListener('resize', this.handleResizeDebounced);
       }
     }
@@ -144,7 +133,7 @@ var ImageResponsive = (function (_Component2) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (this.props.src && nextProps.src !== this.props.src) {
-        this.setState({ 'src': this.pickOptimalSource(_react2['default'].findDOMNode(this.refs.element).offsetWidth, nextProps) });
+        this.setState({ 'src': this.pickOptimalSource(_reactDom2.default.findDOMNode(this.refs.element).offsetWidth, nextProps) }, this.handleResize);
       }
     }
   }, {
@@ -152,18 +141,23 @@ var ImageResponsive = (function (_Component2) {
     value: function pickOptimalSource(width, props) {
       var data = props.children.filter(this.isSource);
 
-      var bestBiggerSource = _ramda2['default'].head(_ramda2['default'].sort(function (a, b) {
+      var bestBiggerSource = _ramda2.default.head(_ramda2.default.sort(function (a, b) {
         return a.props.maxWidth > b.props.maxWidth;
-      })(_ramda2['default'].filter(function (a) {
+      })(_ramda2.default.filter(function (a) {
         return a.props.maxWidth >= width;
       })(data)));
-      var bestSmallerSource = _ramda2['default'].head(_ramda2['default'].sort(function (a, b) {
+      var bestSmallerSource = _ramda2.default.head(_ramda2.default.sort(function (a, b) {
         return a.props.maxWidth < b.props.maxWidth;
-      })(_ramda2['default'].filter(function (a) {
+      })(_ramda2.default.filter(function (a) {
         return a.props.maxWidth <= width;
       })(data)));
 
-      return _ramda2['default'].or(bestBiggerSource, bestSmallerSource).props.src;
+      var source = _ramda2.default.or(bestBiggerSource, bestSmallerSource);
+      if (source) {
+        return source.props.src;
+      }
+
+      return this.props.src;
     }
   }, {
     key: 'isSource',
@@ -198,13 +192,13 @@ var ImageResponsive = (function (_Component2) {
           style.height = this.props.height;
         }
       }
-      style = (0, _objectAssign2['default'])(style, this.props.style);
+      style = (0, _objectAssign2.default)(style, this.props.style);
       var filteredChildren = this.props.children.filter(this.notSource.bind(this));
-      return this.props.type === 'image' ? _react2['default'].createElement(
+      return this.props.type === 'image' ? _react2.default.createElement(
         'img',
         _extends({ ref: 'element' }, this.props, { src: this.state.src, style: style }),
         filteredChildren
-      ) : _react2['default'].createElement(
+      ) : _react2.default.createElement(
         'div',
         _extends({ ref: 'element' }, this.props, { style: style }),
         filteredChildren
@@ -213,7 +207,18 @@ var ImageResponsive = (function (_Component2) {
   }]);
 
   return ImageResponsive;
-})(_react.Component);
+}(_react.Component);
 
-exports['default'] = ImageResponsive;
+ImageResponsive.propTypes = {
+  src: _propTypes2.default.string.isRequired,
+  type: _propTypes2.default.string.isRequired,
+  transition: _propTypes2.default.bool.isRequired
+};
+ImageResponsive.defaultProps = {
+  src: '',
+  style: {},
+  type: 'image',
+  transition: true
+};
+exports.default = ImageResponsive;
 

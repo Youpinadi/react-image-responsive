@@ -30,10 +30,16 @@
     "is-retina": "^1.0.3",
     "lodash.debounce": "^3.1.1",
     "object-assign": "^4.0.1",
-    "ramda": "^0.18.0"
+    "prop-types": "^15.6.0",
+    "ramda": "^0.18.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "^5.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "jest-cli": "^0.5.10",
     "react": "^0.13.3"
   },
