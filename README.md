@@ -10,15 +10,15 @@ What if your image is 300px on an iPhone and only 100px on a larger screen?
 
 # Installation
 
+Demo: https://youpinadi.github.io/react-image-responsive/
+
 ```bash
-npm install react-image-responsive
+yarn add react-image-responsive
 ```
 
-# Usage (ES6 + JSX):
-
 ```javascript
-import React from 'react';
-import ImageResponsive, { Source } from 'react-image-responsive';
+import ReactDOM from 'react-dom';
+import ImageResponsive from 'react-image-responsive';
 
 const sources = [
   { maxWidth: 100, src: 'http://placehold.it/100x100' },
@@ -28,7 +28,7 @@ const sources = [
   { maxWidth: 1200, src: 'http://placehold.it/1200x100' }
 ];
 
-React.render(
+ReactDOM.render(
   <div className="App">
     <figure>
       <ImageResponsive
