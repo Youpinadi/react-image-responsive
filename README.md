@@ -3,14 +3,14 @@
 An image that is responsive to its width on the screen (can be also a background image)
 Works with retina displays.
 
+Demo: https://youpinadi.github.io/react-image-responsive/
+
 # Why?
 
 Media queries only take care of the screen size and resolution, not about the actual image size.
 What if your image is 300px on an iPhone and only 100px on a larger screen?
 
 # Installation
-
-Demo: https://youpinadi.github.io/react-image-responsive/
 
 ```bash
 yarn add react-image-responsive
