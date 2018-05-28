@@ -1,0 +1,42 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+figure {
+    flex: 1;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 16px;
+}
+
+figcaption {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px;
+}
+
+figure:nth-child(1) {
+    background-color: #581845;
+}
+figure:nth-child(2) {
+    background-color: #900c3f;
+}
+figure:nth-child(3) {
+    background-color: #c70039;
+}
+figure:nth-child(4) {
+    background-color: #ff5733;
+}
+figure:nth-child(5) {
+    background-color: #ffc30f;
+}
+
+img {
+    height: 60%;
+    margin-bottom: 16px;
+}
