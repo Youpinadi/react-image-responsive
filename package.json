@@ -1,42 +1,45 @@
 {
-    "name": "react-image-responsive",
-    "version": "2.0.0",
-    "description":
-        "An image that is responsive to its width on the screen (can be also a background image)",
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Youpinadi/react-image-responsive"
-    },
-    "keywords": ["react-component", "image", "responsive"],
-    "author": "Nadir Kadem",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Youpinadi/react-image-responsive/issues"
-    },
-    "homepage": "https://github.com/Youpinadi/react-image-responsive",
-    "dependencies": {
-        "is-client": "^0.0.2",
-        "is-retina": "^1.0.3",
-        "lodash.debounce": "^4.0.8",
-        "react": "^16.3.2",
-        "react-dom": "^16.3.2",
-        "react-proptypes": "^1.0.0",
-        "react-scripts": "1.1.4"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "build-npm":
-            "npx babel ./src/ImageResponsive/ImageResponsive.jsx --out-file lib/ImageResponsive.js",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-plugin-transform-react-jsx": "^6.24.1",
-        "babel-preset-react": "^6.24.1",
-        "babel-preset-stage-0": "^6.24.1"
-    }
+  "name": "react-image-responsive",
+  "version": "2.0.0",
+  "description":
+    "An image that is responsive to its width on the screen (can be also a background image)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Youpinadi/react-image-responsive"
+  },
+  "keywords": ["react-component", "image", "responsive"],
+  "author": "Nadir Kadem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youpinadi/react-image-responsive/issues"
+  },
+  "homepage": "https://github.com/Youpinadi/react-image-responsive",
+  "dependencies": {
+    "gh-pages": "^1.1.0",
+    "is-client": "^0.0.2",
+    "is-retina": "^1.0.3",
+    "lodash.debounce": "^4.0.8",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-proptypes": "^1.0.0",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build-npm":
+      "npx babel ./src/ImageResponsive/ImageResponsive.jsx --out-file lib/ImageResponsive.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
 }
