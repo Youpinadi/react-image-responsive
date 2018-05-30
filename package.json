@@ -1,6 +1,6 @@
 {
   "name": "react-image-responsive",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An image that is responsive to its width on the screen (can be also a background image)",
   "main": "lib/ImageResponsive.js",
   "repository": {
